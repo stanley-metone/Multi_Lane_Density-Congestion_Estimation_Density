@@ -1,0 +1,18 @@
+# Example zone configuration for a fixed overhead/oblique traffic camera.
+# Coordinates are pixel (x, y) values in the source video's resolution.
+# Draw these by eye against a paused frame of your own footage --
+# scripts/draw_zones.py (see README) opens an interactive point-picker
+# so you don't have to guess coordinates by hand.
+
+zones:
+  - name: lane_northbound
+    polygon: [[180, 40], [420, 40], [460, 380], [120, 380]]
+    # capacity omitted -> estimated from polygon area / avg_vehicle_area_px
+
+  - name: lane_southbound
+    polygon: [[460, 40], [700, 40], [780, 380], [500, 380]]
+
+  - name: junction_box
+    polygon: [[420, 40], [460, 40], [500, 380], [460, 380]]
+    capacity: 6
+    avg_vehicle_area_px: 3800
